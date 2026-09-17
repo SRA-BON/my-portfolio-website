@@ -61,13 +61,13 @@ export default function Works() {
         <motion.div initial="hidden" animate="show" variants={fadeInUp}>
           <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 800, marginBottom: '1rem' }}>Selected <span className="highlight">Works</span></h1>
           <p style={{ fontSize: '1.25rem', opacity: 0.8, maxWidth: '600px' }}>
-            A curated collection of my recent projects, demonstrating expertise in web development, machine learning, and game engineering. Each project reflects a commitment to technical excellence and user-focused design.
+            A collection of my projects, showing my works in web development, machine learning, networking and systems programming.
           </p>
         </motion.div>
       </section>
 
       <section style={{ paddingTop: 0 }}>
-        <motion.div 
+        <motion.div
           className="works-grid"
           variants={!isMobileScreen ? staggerContainer : undefined}
           initial={!isMobileScreen ? "hidden" : undefined}
@@ -100,12 +100,14 @@ export default function Works() {
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <div className="work-links">
-                  <a href={item.github || "#"} target={item.github ? "_blank" : "_self"} rel="noreferrer" style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
+                  <a href={item.github || "#"} target={item.github ? "_blank" : "_self"} rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                     <GithubIcon size={18} /> Source
                   </a>
-                  <a href={item.demo || "#"} target={item.demo ? "_blank" : "_self"} rel="noreferrer" style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
-                    <ExternalLink size={18} /> {getDemoLabel(item.category)}
-                  </a>
+                  {item.category === 'Web Development' && (
+                    <a href={item.demo || "#"} target={item.demo ? "_blank" : "_self"} rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <ExternalLink size={18} /> {getDemoLabel(item.category)}
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

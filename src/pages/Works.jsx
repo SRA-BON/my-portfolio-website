@@ -40,13 +40,13 @@ export default function Works() {
   });
 
   const projects = [
-    { title: "PrintCraft Store", description: "A MERN stack based e-commerce website featuring interactive canvas customization, a live chatbot, and seamless user experience.", category: "Web Development", github: "https://github.com/SRA-BON/printcraft-store.git", demo: "https://printcraft-store.vercel.app" },
-    { title: "Uni-Transport System", description: "A complete digital transport and parking management system for university transit, featuring digital booking and wallet payments.", category: "Web Development", github: "https://github.com/SRA-BON/University-Transport-Parking-Management-System-.git", demo: "https://uni-basement-system.web.app/login" },
-    { title: "BridgeNet Campus", description: "A comprehensive computer networks project covering socket programming, NS-3 simulation, and Cisco Packet Tracer configurations.", category: "Networking", github: "https://github.com/SRA-BON/BridgeNet-Campus" },
-    { title: "Horizon Pulse", description: "A highly detailed, custom 3D racing open-world car game built from scratch using Python and raw PyOpenGL.", category: "Game Development", github: "https://github.com/SRA-BON/horizon-pulse" },
-    { title: "Real Estate Price Prediction", description: "A Machine Learning model trained on the Melbourne housing dataset to accurately predict real estate property prices.", category: "Machine Learning", github: "https://github.com/SRA-BON/real-state-price-prediction-using-Machine-Learning-.git" },
-    { title: "Tree Sterility Analysis", description: "A Machine Learning analysis project focused on predicting and analyzing tree sterility using environmental datasets.", category: "Machine Learning", github: "https://github.com/SRA-BON/Tree-sterility-analysis-using-ML.git" },
-    { title: "VSFS (Very Simple File System)", description: "A minimalist, functional file system implementation built entirely in C to explore OS-level data structures.", category: "Systems Programming", github: "https://github.com/SRA-BON/VSFS-.git" }
+    { title: "PrintCraft Store", description: "A MERN stack based e-commerce website featuring interactive canvas customization, a live chatbot, and seamless user experience.", category: "Web Development", github: "https://github.com/SRA-BON/printcraft-store.git", demo: "https://printcraft-store.vercel.app", bgImage: "/bg/bg (2).png" },
+    { title: "Uni-Transport System", description: "A complete digital transport and parking management system for university transit, featuring digital booking and wallet payments.", category: "Web Development", github: "https://github.com/SRA-BON/University-Transport-Parking-Management-System-.git", demo: "https://uni-basement-system.web.app/login", bgImage: "/bg/bg (7).png" },
+    { title: "BridgeNet Campus", description: "A comprehensive computer networks project covering socket programming, NS-3 simulation, and Cisco Packet Tracer configurations.", category: "Networking", github: "https://github.com/SRA-BON/BridgeNet-Campus", bgImage: "/bg/bg (9).png" },
+    { title: "Horizon Pulse", description: "A highly detailed, custom 3D racing open-world car game built from scratch using Python and raw PyOpenGL.", category: "Game Development", github: "https://github.com/SRA-BON/horizon-pulse", bgImage: "/bg/bg (1).png" },
+    { title: "Real Estate Price Prediction", description: "A Machine Learning model trained on the Melbourne housing dataset to accurately predict real estate property prices.", category: "Machine Learning", github: "https://github.com/SRA-BON/real-state-price-prediction-using-Machine-Learning-.git", bgImage: "/bg/bg (5).png" },
+    { title: "Tree Sterility Analysis", description: "A Machine Learning analysis project focused on predicting and analyzing tree sterility using environmental datasets.", category: "Machine Learning", github: "https://github.com/SRA-BON/Tree-sterility-analysis-using-ML.git", bgImage: "/bg/bg (8).png" },
+    { title: "VSFS (Very Simple File System)", description: "A minimalist, functional file system implementation built entirely in C to explore OS-level data structures.", category: "Systems Programming", github: "https://github.com/SRA-BON/VSFS-.git", bgImage: "/bg/bg (3).png" }
   ];
 
   const getDemoLabel = (category) => {
@@ -81,19 +81,33 @@ export default function Works() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.25 }}
+              style={{ position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary-color)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
-                {item.category}
-              </div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <div className="work-links">
-                <a href={item.github || "#"} target={item.github ? "_blank" : "_self"} rel="noreferrer" style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
-                  <GithubIcon size={18} /> Source
-                </a>
-                <a href={item.demo || "#"} target={item.demo ? "_blank" : "_self"} rel="noreferrer" style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
-                  <ExternalLink size={18} /> {getDemoLabel(item.category)}
-                </a>
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: `url('${item.bgImage}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.15,
+                zIndex: 0,
+                pointerEvents: 'none',
+                transition: 'opacity 0.3s ease'
+              }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary-color)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
+                  {item.category}
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className="work-links">
+                  <a href={item.github || "#"} target={item.github ? "_blank" : "_self"} rel="noreferrer" style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
+                    <GithubIcon size={18} /> Source
+                  </a>
+                  <a href={item.demo || "#"} target={item.demo ? "_blank" : "_self"} rel="noreferrer" style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
+                    <ExternalLink size={18} /> {getDemoLabel(item.category)}
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}

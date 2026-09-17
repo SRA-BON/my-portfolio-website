@@ -9,6 +9,16 @@ import Career from './pages/Career';
 import AdminDashboard from './pages/AdminDashboard';
 import LiveChat from './components/LiveChat';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function AppContent({ theme, setTheme, isMobile }) {
   const location = useLocation();
   const [isAdmin, setIsAdmin] = useState(false);
@@ -131,6 +141,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <AppContent theme={theme} setTheme={setTheme} isMobile={isMobile} />
     </Router>
   );

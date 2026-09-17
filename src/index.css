@@ -420,11 +420,24 @@ button {
   animation: vibrate 0.1s linear infinite;
 }
 
-/* Ensure all buttons and links vibrate on mobile/tablet when pressed as a fallback */
+/* Ensure hover states don't get stuck on touch devices. Only animate while holding (active). */
 @media (hover: none) {
+  /* Cancel stuck hover animations */
+  .btn-primary:hover:not(:active),
+  .btn-secondary:hover:not(:active),
+  .btn-icon:hover:not(:active),
+  .social-link:hover:not(:active),
+  .nav-link:hover:not(:active),
+  .theme-switch:hover:not(:active),
+  .work-links a:hover:not(:active),
+  .chat-toggle-btn:hover:not(:active) {
+    animation: none !important;
+  }
+  
+  /* Apply vibration while holding */
   button:active,
   a:active {
-    animation: vibrate 0.1s linear infinite;
+    animation: vibrate 0.1s linear infinite !important;
   }
 }
 

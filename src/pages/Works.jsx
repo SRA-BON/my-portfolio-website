@@ -89,7 +89,7 @@ export default function Works() {
                 backgroundImage: `url('${item.bgImage}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                opacity: 0.15,
+                opacity: 0.25,
                 zIndex: 0,
                 pointerEvents: 'none',
                 transition: 'opacity 0.3s ease'

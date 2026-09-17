@@ -30,6 +30,7 @@ export default function Career() {
   });
 
   const roadmapData = [
+    { year: "2026", title: "Enterprise & Network Infrastructure", desc: "Developed comprehensive digital transport systems and simulated advanced network topologies, integrating real-world protocols and payment gateways." },
     { year: "2024", title: "Advanced Machine Learning Specialization", desc: "Focused on neural network architectures, data engineering pipelines, and predictive modeling to solve complex data challenges." },
     { year: "2023", title: "Full-Stack Software Engineering", desc: "Architected dynamic web ecosystems using React, Node.js, and advanced CSS, with a focus on high-performance and scalable user experiences." },
     { year: "2022", title: "Foundational Systems & Programming", desc: "Established a strong technical foundation in Python and JavaScript, developing algorithmic solutions and responsive web interfaces." }

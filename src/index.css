@@ -526,6 +526,27 @@ section {
   opacity: 0.8;
 }
 
+.work-card-bg {
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) {
+  .work-card:hover .work-card-bg {
+    opacity: 0.6;
+  }
+}
+
+[data-theme='gaming'] .work-card-bg {
+  opacity: 0.25;
+}
+
+@media (hover: hover) {
+  [data-theme='gaming'] .work-card:hover .work-card-bg {
+    opacity: 0.45;
+  }
+}
+
 /* ============================================================
    FOOTER
    ============================================================ */

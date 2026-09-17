@@ -83,13 +83,12 @@ export default function Works() {
               viewport={{ once: true, amount: 0.25 }}
               style={{ position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{
+              <div className="work-card-bg" style={{
                 position: 'absolute',
                 inset: 0,
                 backgroundImage: `url('${item.bgImage}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                opacity: 0.25,
                 zIndex: 0,
                 pointerEvents: 'none',
                 transition: 'opacity 0.3s ease'
